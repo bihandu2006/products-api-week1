@@ -1,7 +1,6 @@
-
 package uk.ac.westminster.products_api;
 
-public class Product {
+public abstract class Product {
 
     private Long id;
     private String name;
@@ -11,12 +10,16 @@ public class Product {
     public Product() {
     }
 
-    // Constructor with parameters
+    // Constructor with parameters (subclasses call this through super(...))
     public Product(Long id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
+
+    // No body: Product cannot answer this question,
+    // so every concrete subclass MUST answer it.
+    public abstract String getSummary();
 
     // Getters
     public Long getId() {

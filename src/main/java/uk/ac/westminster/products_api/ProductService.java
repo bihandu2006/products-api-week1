@@ -29,6 +29,15 @@ public class ProductService {
         return new ArrayList<> (products.values());
     }
 
+    // Collect every product's summary; each class answers for itself (polymorphism)
+    public List<String> getAllSummaries() {
+        List<String> summaries = new ArrayList<>();
+        for (Product p : products.values()) {
+            summaries.add(p.getSummary());
+        }
+        return summaries;
+    }
+
     // Insert each product in a JASON format
     public Product addProduct(Product product) {
         product.setId(nextId++);
